@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qianqiulin.ssmDemo.mapper.ComplaintMapper" >
+  <resultMap id="BaseResultMap" type="com.qianqiulin.ssmDemo.pojo.Complaint" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="yingyebu" property="yingyebu" jdbcType="VARCHAR" />
+    <result column="didian" property="didian" jdbcType="VARCHAR" />
+    <result column="jingdu" property="jingdu" jdbcType="VARCHAR" />
+    <result column="weidu" property="weidu" jdbcType="VARCHAR" />
+    <result column="fugaiyonghushu" property="fugaiyonghushu" jdbcType="VARCHAR" />
+    <result column="gudingdianhuashu" property="gudingdianhuashu" jdbcType="VARCHAR" />
+    <result column="tietaqingkuang" property="tietaqingkuang" jdbcType="VARCHAR" />
+    <result column="jiejuefangan" property="jiejuefangan" jdbcType="VARCHAR" />
+    <result column="date" property="date" jdbcType="VARCHAR" />
+    <result column="chulijieguo" property="chulijieguo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, yingyebu, didian, jingdu, weidu, fugaiyonghushu, gudingdianhuashu, tietaqingkuang, 
+    jiejuefangan, date, chulijieguo
+  </sql>
+
+  <select id="selectByPrimaryKeyAll" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from complaint
+  </select>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from complaint
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from complaint
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qianqiulin.ssmDemo.pojo.Complaint" >
+    insert into complaint (id, yingyebu, didian, 
+      jingdu, weidu, fugaiyonghushu, 
+      gudingdianhuashu, tietaqingkuang, jiejuefangan, 
+      date, chulijieguo)
+    values (#{id,jdbcType=INTEGER}, #{yingyebu,jdbcType=VARCHAR}, #{didian,jdbcType=VARCHAR}, 
+      #{jingdu,jdbcType=VARCHAR}, #{weidu,jdbcType=VARCHAR}, #{fugaiyonghushu,jdbcType=VARCHAR}, 
+      #{gudingdianhuashu,jdbcType=VARCHAR}, #{tietaqingkuang,jdbcType=VARCHAR}, #{jiejuefangan,jdbcType=VARCHAR}, 
+      #{date,jdbcType=VARCHAR}, #{chulijieguo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qianqiulin.ssmDemo.pojo.Complaint" >
+    insert into complaint
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="yingyebu != null" >
+        yingyebu,
+      </if>
+      <if test="didian != null" >
+        didian,
+      </if>
+      <if test="jingdu != null" >
+        jingdu,
+      </if>
+      <if test="weidu != null" >
+        weidu,
+      </if>
+      <if test="fugaiyonghushu != null" >
+        fugaiyonghushu,
+      </if>
+      <if test="gudingdianhuashu != null" >
+        gudingdianhuashu,
+      </if>
+      <if test="tietaqingkuang != null" >
+        tietaqingkuang,
+      </if>
+      <if test="jiejuefangan != null" >
+        jiejuefangan,
+      </if>
+      <if test="date != null" >
+        date,
+      </if>
+      <if test="chulijieguo != null" >
+        chulijieguo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="yingyebu != null" >
+        #{yingyebu,jdbcType=VARCHAR},
+      </if>
+      <if test="didian != null" >
+        #{didian,jdbcType=VARCHAR},
+      </if>
+      <if test="jingdu != null" >
+        #{jingdu,jdbcType=VARCHAR},
+      </if>
+      <if test="weidu != null" >
+        #{weidu,jdbcType=VARCHAR},
+      </if>
+      <if test="fugaiyonghushu != null" >
+        #{fugaiyonghushu,jdbcType=VARCHAR},
+      </if>
+      <if test="gudingdianhuashu != null" >
+        #{gudingdianhuashu,jdbcType=VARCHAR},
+      </if>
+      <if test="tietaqingkuang != null" >
+        #{tietaqingkuang,jdbcType=VARCHAR},
+      </if>
+      <if test="jiejuefangan != null" >
+        #{jiejuefangan,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null" >
+        #{date,jdbcType=VARCHAR},
+      </if>
+      <if test="chulijieguo != null" >
+        #{chulijieguo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qianqiulin.ssmDemo.pojo.Complaint" >
+    update complaint
+    <set >
+      <if test="yingyebu != null" >
+        yingyebu = #{yingyebu,jdbcType=VARCHAR},
+      </if>
+      <if test="didian != null" >
+        didian = #{didian,jdbcType=VARCHAR},
+      </if>
+      <if test="jingdu != null" >
+        jingdu = #{jingdu,jdbcType=VARCHAR},
+      </if>
+      <if test="weidu != null" >
+        weidu = #{weidu,jdbcType=VARCHAR},
+      </if>
+      <if test="fugaiyonghushu != null" >
+        fugaiyonghushu = #{fugaiyonghushu,jdbcType=VARCHAR},
+      </if>
+      <if test="gudingdianhuashu != null" >
+        gudingdianhuashu = #{gudingdianhuashu,jdbcType=VARCHAR},
+      </if>
+      <if test="tietaqingkuang != null" >
+        tietaqingkuang = #{tietaqingkuang,jdbcType=VARCHAR},
+      </if>
+      <if test="jiejuefangan != null" >
+        jiejuefangan = #{jiejuefangan,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null" >
+        date = #{date,jdbcType=VARCHAR},
+      </if>
+      <if test="chulijieguo != null" >
+        chulijieguo = #{chulijieguo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qianqiulin.ssmDemo.pojo.Complaint" >
+    update complaint
+    set yingyebu = #{yingyebu,jdbcType=VARCHAR},
+      didian = #{didian,jdbcType=VARCHAR},
+      jingdu = #{jingdu,jdbcType=VARCHAR},
+      weidu = #{weidu,jdbcType=VARCHAR},
+      fugaiyonghushu = #{fugaiyonghushu,jdbcType=VARCHAR},
+      gudingdianhuashu = #{gudingdianhuashu,jdbcType=VARCHAR},
+      tietaqingkuang = #{tietaqingkuang,jdbcType=VARCHAR},
+      jiejuefangan = #{jiejuefangan,jdbcType=VARCHAR},
+      date = #{date,jdbcType=VARCHAR},
+      chulijieguo = #{chulijieguo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

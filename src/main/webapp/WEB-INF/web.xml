@@ -26,7 +26,7 @@
     </servlet-mapping>
 
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>/WEB-INF/view/login.jsp</welcome-file>
     </welcome-file-list>
 
     <!--配置Shiro过滤器,先让Shiro过滤系统接收到的请求-->
