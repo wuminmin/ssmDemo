@@ -5,7 +5,7 @@
 <generatorConfiguration>
     <!-- 数据库驱动-->
     <classPathEntry
-            location="/Users/TyurinTsien/.m2/repository/mysql/mysql-connector-java/5.1.30/mysql-connector-java-5.1.30.jar"/>
+            location="C:\Users\WMM\.m2\repository\mysql\mysql-connector-java\5.1.30\mysql-connector-java-5.1.30.jar"/>
     <context id="DB2Tables" targetRuntime="MyBatis3">
         <commentGenerator>
             <property name="suppressDate" value="false"/>
@@ -14,9 +14,9 @@
         </commentGenerator>
         <!--数据库链接URL，用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost/obranch"
+                        connectionURL="jdbc:mysql://localhost/crmspmvc"
                         userId="root"
-                        password="">
+                        password="root">
         </jdbcConnection>
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
@@ -51,8 +51,8 @@
         <!--<columnOverride column="DeviceType" javaType="java.lang.String" jdbcType="VARCHAR" />-->
         <!--</table>-->
 
-        <table tableName="puesTest"
-               domainObjectName="PowerPuesTest"
+        <table tableName="lemon_user"
+               domainObjectName="Lemon_user"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"

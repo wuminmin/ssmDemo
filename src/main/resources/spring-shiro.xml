@@ -29,9 +29,9 @@
             <value>
                 /static/**=anon
                 /error/**=anon
-                /client/**=authc
-                /admin/**=authc
-                /druid/**=authc
+                /client/**=anon
+                /admin/**=anon
+                <!--/druid/**=authc-->
             </value>
         </property>
     </bean>
