@@ -70,6 +70,9 @@
                 <input id="chulijieguo" name="chulijieguo" type="txt" class="form-control" placeholder="处理最终结果" required="">
             </div>
             <button type="submit" class="btn btn-warning block full-width m-b">登记</button>
+
+            <br>
+
             <p class="text-muted text-center">
                 <a href="${pageContext.request.contextPath}/login">回到登录页</a>
             </p>

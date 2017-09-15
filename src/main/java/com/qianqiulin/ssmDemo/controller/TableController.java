@@ -2,15 +2,20 @@ package com.qianqiulin.ssmDemo.controller;
 
 import com.qianqiulin.ssmDemo.pojo.Complaint;
 import com.qianqiulin.ssmDemo.sqlService.ComplaintSql;
+import com.qianqiulin.ssmDemo.view.ExcelView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static java.lang.System.out;
 
@@ -33,21 +38,11 @@ public class TableController {
     public ModelAndView add(ModelAndView mav, Complaint request){
         Complaint record = request;
 
-        System.out.println("aaaaaaaaaaaaaaaaaaa"+request.getYingyebu().toString());
-
         SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
         Date date = new Date(System.currentTimeMillis());
         String time = format.format(date);
         record.setDate(time);
 
-//        String msg = this.validate(record);
-//        modelAndView.addObject("customer", record);
-//
-//        if (msg != null && msg.length() > 0)
-//        {
-//            modelAndView.addObject("error", msg);
-//            return modelAndView;
-//        }
         int id = complaintSql.insert(record);
         mav.setViewName("record");
         return mav;
@@ -62,5 +57,15 @@ public class TableController {
     @RequestMapping(value = "login")
     public ModelAndView login(ModelAndView mav){
         return mav;
+    }
+
+    @RequestMapping(value = "excel",method = RequestMethod.GET)
+    public ModelAndView excel(ModelAndView modelAndView ,HttpServletRequest request)throws Exception{
+
+        List<Complaint> customers = complaintSql.selectAllComplaintList();
+        Map<String,List<Complaint>> map = new HashMap<String,List<Complaint>>();
+        map.put("infoList",customers);
+        ExcelView ve = new ExcelView();
+        return new ModelAndView(ve,map);
     }
 }

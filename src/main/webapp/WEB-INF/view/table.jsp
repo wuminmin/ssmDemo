@@ -31,7 +31,7 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>移动用户投诉处理情况</h5>
-                    <div class="ibox-tools">
+                    <div class="ibox-tools alert">
                         <%--<a class="collapse-link">--%>
                             <%--<i class="fa fa-chevron-up"></i>--%>
                         <%--</a>--%>
@@ -47,7 +47,8 @@
                         <%--<a class="close-link">--%>
                             <%--<i class="fa fa-times"></i>--%>
                         <%--</a>--%>
-                        <a href=""><导出EXCEL></导出EXCEL></a>
+                            <button class="btn btn-primary btn-xs" type="button" href="${pageContext.request.contextPath}/excel">导出EXCEL</button>
+                            <%--<h5><a href="${pageContext.request.contextPath}/excel"><导出EXCEL></导出EXCEL></a></h5>--%>
                     </div>
                 </div>
                 <div class="ibox-content">

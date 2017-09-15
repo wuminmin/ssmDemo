@@ -46,13 +46,10 @@
                     <input type="password" class="form-control" placeholder="密码" required="">
                 </div>
                 <button type="submit" class="btn btn-primary block full-width m-b">登 录</button>
-
-
+                <br>
                 <p class="text-muted text-center">
-                    <a href="${pageContext.request.contextPath}/static/login.jsp#"><small>我要投诉</small></a>
-                    | <a href="${pageContext.request.contextPath}/record">我要记录</a>
+                    <a href="${pageContext.request.contextPath}/record">我要记录</a>
                 </p>
-
             </form>
         </div>
     </div>

@@ -85,6 +85,33 @@
 
     <dependencies>
 
+        <!-- https://mvnrepository.com/artifact/org.glassfish.ha/ha-api -->
+        <dependency>
+            <groupId>org.glassfish.ha</groupId>
+            <artifactId>ha-api</artifactId>
+            <version>3.1.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.16</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.glassfish.gmbal/gmbal-api-only -->
+        <dependency>
+            <groupId>org.glassfish.gmbal</groupId>
+            <artifactId>gmbal-api-only</artifactId>
+            <version>3.0.0-b023</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.sun.xml.ws/policy -->
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>policy</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
