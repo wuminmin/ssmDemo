@@ -5,7 +5,6 @@ import com.qianqiulin.ssmDemo.mapper.ComplaintMapper;
 import com.qianqiulin.ssmDemo.pojo.Complaint;
 import org.springframework.stereotype.Service;
 
-
 import javax.annotation.Resource;
 import java.util.List;
 
@@ -19,5 +18,11 @@ public class ComplaintSqlImpl implements ComplaintSql{
     public List<Complaint> selectAllComplaintList() {
         List<Complaint> complaints = complaintMapper.selectByPrimaryKeyAll();
         return complaints;
+    }
+
+    @Override
+    public int insert(Complaint complaint) {
+        int flag = complaintMapper.insert(complaint);
+        return flag;
     }
 }
