@@ -20,13 +20,13 @@ import java.util.Map;
 import static java.lang.System.out;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/table")
 public class TableController {
 
     @Autowired
     private ComplaintSql complaintSql;
 
-    @RequestMapping(value = "table")
+    @RequestMapping(value = "/table")
     public ModelAndView table(ModelAndView mav){
         List<Complaint> complaints = complaintSql.selectAllComplaintList();
         mav.addObject("complaints", complaints);
@@ -34,11 +34,11 @@ public class TableController {
         return mav;
     }
 
-    @RequestMapping(value = "add")
+    @RequestMapping(value = "/add")
     public ModelAndView add(ModelAndView mav, Complaint request){
         Complaint record = request;
 
-        SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日");
         Date date = new Date(System.currentTimeMillis());
         String time = format.format(date);
         record.setDate(time);
@@ -48,18 +48,19 @@ public class TableController {
         return mav;
     }
 
-    @RequestMapping(value = "record")
+    @RequestMapping(value = "/record")
     public ModelAndView record(ModelAndView mav){
         mav.setViewName("record");
         return mav;
     }
 
-    @RequestMapping(value = "login")
+    @RequestMapping(value = "/login")
     public ModelAndView login(ModelAndView mav){
+        mav.setViewName("login");
         return mav;
     }
 
-    @RequestMapping(value = "excel",method = RequestMethod.GET)
+    @RequestMapping(value = "/excel",method = RequestMethod.GET)
     public ModelAndView excel(ModelAndView modelAndView ,HttpServletRequest request)throws Exception{
 
         List<Complaint> customers = complaintSql.selectAllComplaintList();
@@ -67,5 +68,19 @@ public class TableController {
         map.put("infoList",customers);
         ExcelView ve = new ExcelView();
         return new ModelAndView(ve,map);
+    }
+
+    @RequestMapping(value = "/delete")
+    public ModelAndView delete(ModelAndView mav,HttpServletRequest request){
+        String  s= request.getParameter("deleteId");
+        try {
+            int i = Integer.parseInt(s);
+            complaintSql.delete(i);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        mav.setViewName("redirect:/table/table");
+        return mav;
     }
 }

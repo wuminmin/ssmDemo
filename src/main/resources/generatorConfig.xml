@@ -51,8 +51,8 @@
         <!--<columnOverride column="DeviceType" javaType="java.lang.String" jdbcType="VARCHAR" />-->
         <!--</table>-->
 
-        <table tableName="complaint"
-               domainObjectName="Complaint"
+        <table tableName="user"
+               domainObjectName="User"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"

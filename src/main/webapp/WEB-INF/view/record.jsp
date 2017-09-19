@@ -41,7 +41,7 @@
         <%--</div>--%>
         <h3>登记移动用户投诉处理情况</h3>
 
-        <form class="m-t" role="form" action="${pageContext.request.contextPath}/add">
+        <form class="m-t" role="form" action="${pageContext.request.contextPath}/table/add">
             <div class="form-group">
                 <input id="yingyebu" name="yingyebu" type="txt" class="form-control" placeholder="营业部" required="">
             </div>
@@ -69,12 +69,12 @@
             <div class="form-group">
                 <input id="chulijieguo" name="chulijieguo" type="txt" class="form-control" placeholder="处理最终结果" required="">
             </div>
-            <button type="submit" class="btn btn-warning block full-width m-b">登记</button>
+            <button type="submit" class="btn btn-success block full-width m-b">登记</button>
 
             <br>
 
             <p class="text-muted text-center">
-                <a href="${pageContext.request.contextPath}/login">回到登录页</a>
+                <a href="${pageContext.request.contextPath}/table/login">回到登录页</a>
             </p>
 
             <%--<p class="text-muted text-center"> <a href="login.html#"><small>忘记密码了？</small></a> | <a href="register.html">注册一个新账号</a>--%>

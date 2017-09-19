@@ -25,4 +25,13 @@ public class ComplaintSqlImpl implements ComplaintSql{
         int flag = complaintMapper.insert(complaint);
         return flag;
     }
+
+    @Override
+    public void delete(int id) {
+        try {
+            complaintMapper.deleteByPrimaryKey(id);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

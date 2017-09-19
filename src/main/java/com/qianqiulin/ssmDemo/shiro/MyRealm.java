@@ -1,5 +1,7 @@
 package com.qianqiulin.ssmDemo.shiro;
 
+import com.qianqiulin.ssmDemo.pojo.User;
+import com.qianqiulin.ssmDemo.sqlService.UserSql;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -61,6 +63,8 @@ public class MyRealm extends AuthorizingRealm {
 //                setSession("userID", userInfo.getSystemid());
 //                return new SimpleAuthenticationInfo(staffCode, staffPwd, getName());
 //            }
+            UserSql userSql;
+
             return new SimpleAuthenticationInfo(staffCode, staffPwd, getName());
         } catch (Exception e) {
             e.printStackTrace();

@@ -38,17 +38,33 @@
             </div>
             <h3>池州电信移动用户投诉管理系统</h3>
 
-            <form class="m-t" role="form" action="${pageContext.request.contextPath}/table">
+
+
+            <form class="m-t" role="form" action="${pageContext.request.contextPath}/table/table">
                 <div class="form-group">
                     <input type="txt" class="form-control" placeholder="用户名" required="">
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control" placeholder="密码" required="">
                 </div>
+
+                <div class="form-group">
+                    <div class="col-sm-8 form-group" style="padding-left: 0px;padding-right: 0px;">
+                        <input name="VerifyCode" type="text" class="form-control"
+                               placeholder="验证码" required="">
+                    </div>
+                    <a class="col-sm-4 form-group" href='#' onclick="javascript:changeImg()">
+                        <img id="imageCode" src="${pageContext.request.contextPath}/verCode/getImage">
+                    </a>
+                </div>
+
                 <button type="submit" class="btn btn-primary block full-width m-b">登 录</button>
                 <br>
+
+
+
                 <p class="text-muted text-center">
-                    <a href="${pageContext.request.contextPath}/record">我要记录</a>
+                    <a href="${pageContext.request.contextPath}/table/record">我要记录</a>
                 </p>
             </form>
         </div>
@@ -57,7 +73,11 @@
     <!-- 全局js -->
     <script src="${pageContext.request.contextPath}/static/js/jquery.min.js?v=2.1.4"></script>
     <script src="${pageContext.request.contextPath}/static/js/bootstrap.min.js?v=3.3.6"></script>
-
+    <script>
+        function changeImg() {
+            $("#imageCode").attr("src", "${pageContext.request.contextPath}/verCode/getImage?date=" + new Date());
+        }
+    </script>
     <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
     <!--统计代码，可删除-->
 

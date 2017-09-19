@@ -7,8 +7,6 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
     <title>池州电信移动用户投诉管理系统</title>
     <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
     <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
@@ -32,23 +30,9 @@
                 <div class="ibox-title">
                     <h5>移动用户投诉处理情况</h5>
                     <div class="ibox-tools alert">
-                        <%--<a class="collapse-link">--%>
-                            <%--<i class="fa fa-chevron-up"></i>--%>
-                        <%--</a>--%>
-                        <%--<a class="dropdown-toggle" data-toggle="dropdown" href="table_data_tables.html#">--%>
-                            <%--<i class="fa fa-wrench"></i>--%>
-                        <%--</a>--%>
-                        <%--<ul class="dropdown-menu dropdown-user">--%>
-                            <%--<li><a href="table_data_tables.html#">选项1</a>--%>
-                            <%--</li>--%>
-                            <%--<li><a href="table_data_tables.html#">选项2</a>--%>
-                            <%--</li>--%>
-                        <%--</ul>--%>
-                        <%--<a class="close-link">--%>
-                            <%--<i class="fa fa-times"></i>--%>
-                        <%--</a>--%>
-                            <button class="btn btn-primary btn-xs" type="button" href="${pageContext.request.contextPath}/excel">导出EXCEL</button>
-                            <%--<h5><a href="${pageContext.request.contextPath}/excel"><导出EXCEL></导出EXCEL></a></h5>--%>
+                        <a class="btn btn-success btn-xs" type="button" href="${pageContext.request.contextPath}/table/record">增加记录</a>
+                        <a class="btn btn-primary btn-xs" type="button" href="${pageContext.request.contextPath}/table/excel">导出记录</a>
+                        <a class="btn btn-danger btn-xs" type="button" href="${pageContext.request.contextPath}/table/login">退出登录</a>
                     </div>
                 </div>
                 <div class="ibox-content">
@@ -70,15 +54,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <%--<c:forEach items="${userlists}" var="usr">--%>
-                            <%--<tr class="gradeX">--%>
-                                <%--<td>${usr.id}</td>--%>
-                                <%--<td>${usr.username}</td>--%>
-                                <%--<td>${usr.password}</td>--%>
-                                <%--<td class="center">${usr.phonenum}</td>--%>
-                                <%--<td class="center">${usr.addr}</td>--%>
-                            <%--</tr>--%>
-                        <%--</c:forEach>--%>
 
                         <c:if test="${!empty complaints}">
                             <c:forEach items="${complaints}" var="complaints">
@@ -98,10 +73,18 @@
                             </c:forEach>
                         </c:if>
                         </tbody>
-                        <tfoot>
-                        </tfoot>
-                    </table>
 
+                    </table>
+                    <tfoot>
+
+                    <form role="form" class="form-inline" action="${pageContext.request.contextPath}/table/delete">
+                        <div class="form-group btn-xs">
+                            <input class=" btn-xs" type="number" placeholder="请输入要删除的序号" id="deleteId" name="deleteId" class="form-control">
+                        </div>
+                        <button class="btn btn-danger btn-xs" type="submit">删除记录</button>
+                    </form>
+
+                    </tfoot>
                 </div>
             </div>
         </div>
