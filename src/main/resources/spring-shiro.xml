@@ -31,6 +31,8 @@
                 /error/**=anon
                 /client/**=anon
                 /admin/**=anon
+
+                /table/**=authc
                 <!--/druid/**=authc-->
             </value>
         </property>

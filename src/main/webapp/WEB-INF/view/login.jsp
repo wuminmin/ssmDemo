@@ -38,14 +38,12 @@
             </div>
             <h3>池州电信移动用户投诉管理系统</h3>
 
-
-
-            <form class="m-t" role="form" action="${pageContext.request.contextPath}/table/table">
+            <form class="m-t" role="form" action="${pageContext.request.contextPath}/loginCheck" method="post">
                 <div class="form-group">
-                    <input type="txt" class="form-control" placeholder="用户名" required="">
+                    <input type="txt" name="userTel" class="form-control" placeholder="用户名" required="">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="密码" required="">
+                    <input type="password" name="userPwd" class="form-control" placeholder="密码" required="">
                 </div>
 
                 <div class="form-group">
@@ -60,11 +58,8 @@
 
                 <button type="submit" class="btn btn-primary block full-width m-b">登 录</button>
                 <br>
-
-
-
                 <p class="text-muted text-center">
-                    <a href="${pageContext.request.contextPath}/table/record">我要记录</a>
+                    <a href="${pageContext.request.contextPath}/record">我要记录</a>
                 </p>
             </form>
         </div>

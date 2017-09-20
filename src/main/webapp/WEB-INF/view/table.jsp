@@ -2,9 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>池州电信移动用户投诉管理系统</title>
@@ -32,7 +30,7 @@
                     <div class="ibox-tools alert">
                         <a class="btn btn-success btn-xs" type="button" href="${pageContext.request.contextPath}/table/record">增加记录</a>
                         <a class="btn btn-primary btn-xs" type="button" href="${pageContext.request.contextPath}/table/excel">导出记录</a>
-                        <a class="btn btn-danger btn-xs" type="button" href="${pageContext.request.contextPath}/table/login">退出登录</a>
+                        <a class="btn btn-danger btn-xs" type="button" href="${pageContext.request.contextPath}/loginOut">退出登录</a>
                     </div>
                 </div>
                 <div class="ibox-content">
@@ -94,18 +92,12 @@
     <!-- 全局js -->
     <script src="${pageContext.request.contextPath}/static/js/jquery.min.js?v=2.1.4"></script>
     <script src="${pageContext.request.contextPath}/static/js/bootstrap.min.js?v=3.3.6"></script>
-
-
-
     <script src="${pageContext.request.contextPath}/static/js/plugins/jeditable/jquery.jeditable.js"></script>
-
     <!-- Data Tables -->
     <script src="${pageContext.request.contextPath}/static/js/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="${pageContext.request.contextPath}/static/js/plugins/dataTables/dataTables.bootstrap.js"></script>
-
     <!-- 自定义js -->
     <%--<script src="${pageContext.request.contextPath}/static/js/content.js?v=1.0.0"></script>--%>
-
 
     <!-- Page-Level Scripts -->
     <script>
@@ -127,14 +119,10 @@
                         "column": oTable.fnGetPosition(this)[2]
                     };
                 },
-
                 "width": "90%",
                 "height": "100%"
             });
-
-
         });
-
         function fnClickAddRow() {
             $('#editable').dataTable().fnAddData([
                 "Custom row",
@@ -142,7 +130,6 @@
                 "New row",
                 "New row",
                 "New row"]);
-
         }
     </script>
 
@@ -150,5 +137,4 @@
     <!--统计代码，可删除-->
 
 </body>
-
 </html>

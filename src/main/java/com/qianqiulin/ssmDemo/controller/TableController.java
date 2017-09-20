@@ -3,6 +3,7 @@ package com.qianqiulin.ssmDemo.controller;
 import com.qianqiulin.ssmDemo.pojo.Complaint;
 import com.qianqiulin.ssmDemo.sqlService.ComplaintSql;
 import com.qianqiulin.ssmDemo.view.ExcelView;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -19,7 +20,9 @@ import java.util.Map;
 
 import static java.lang.System.out;
 
+
 @Controller
+@RequiresRoles("admins")
 @RequestMapping("/table")
 public class TableController {
 
@@ -31,32 +34,6 @@ public class TableController {
         List<Complaint> complaints = complaintSql.selectAllComplaintList();
         mav.addObject("complaints", complaints);
         mav.setViewName("table");
-        return mav;
-    }
-
-    @RequestMapping(value = "/add")
-    public ModelAndView add(ModelAndView mav, Complaint request){
-        Complaint record = request;
-
-        SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日");
-        Date date = new Date(System.currentTimeMillis());
-        String time = format.format(date);
-        record.setDate(time);
-
-        int id = complaintSql.insert(record);
-        mav.setViewName("record");
-        return mav;
-    }
-
-    @RequestMapping(value = "/record")
-    public ModelAndView record(ModelAndView mav){
-        mav.setViewName("record");
-        return mav;
-    }
-
-    @RequestMapping(value = "/login")
-    public ModelAndView login(ModelAndView mav){
-        mav.setViewName("login");
         return mav;
     }
 
@@ -81,6 +58,26 @@ public class TableController {
         }
 
         mav.setViewName("redirect:/table/table");
+        return mav;
+    }
+
+    @RequestMapping(value = "record")
+    public ModelAndView record(ModelAndView mav){
+        mav.setViewName("tableRecord");
+        return mav;
+    }
+
+    @RequestMapping(value = "/add")
+    public ModelAndView add(ModelAndView mav, Complaint request){
+        Complaint record = request;
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日");
+        Date date = new Date(System.currentTimeMillis());
+        String time = format.format(date);
+        record.setDate(time);
+
+        int id = complaintSql.insert(record);
+        mav.setViewName("record");
         return mav;
     }
 }

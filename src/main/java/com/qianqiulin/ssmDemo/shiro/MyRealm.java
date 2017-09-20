@@ -18,8 +18,8 @@ import org.springframework.beans.factory.annotation.Autowired;
  * Tel：18081002339
  */
 public class MyRealm extends AuthorizingRealm {
-
-
+    @Autowired
+    private  UserSql userSql;
     /**
      * 授权，赋予角色
      *
@@ -31,10 +31,10 @@ public class MyRealm extends AuthorizingRealm {
 
         System.out.println("AuthorizationInfo");
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
-//        String userInfoRole = userInfoService.selectByUserTel(principalCollection.toString()).getUserrole();
-//        userInfoRole = (userInfoRole.equals("1")) ? "admins" : "users";
-//        System.out.println(userInfoRole);
-//        authorizationInfo.addRole(userInfoRole);
+        String userInfoRole = userSql.selectByPrimaryUsername(principalCollection.toString()).getUsertype();
+        userInfoRole = (userInfoRole.equals("1")) ? "admins" : "users";
+        System.out.println("userInfoRole------------------------"+userInfoRole);
+        authorizationInfo.addRole(userInfoRole);
         return authorizationInfo;
     }
 
@@ -48,24 +48,21 @@ public class MyRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken)
             throws AuthenticationException {
-
         try {
             UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
             // 通过表单接收的用户名
-            String staffCode = token.getUsername();
-            String staffPwd = String.valueOf(token.getPassword());
-            System.out.println("获取认证信息中:" + staffCode);
-//            // 用户登录校验
-//            Boolean loginCheck = userInfoService.loginCheck(staffCode, staffPwd);
-//            if (loginCheck == true) {
-//                UserInfo userInfo = userInfoService.selectByStaffCode(staffCode.toString());
-//                setSession("staffCode", staffCode);
-//                setSession("userID", userInfo.getSystemid());
-//                return new SimpleAuthenticationInfo(staffCode, staffPwd, getName());
-//            }
-            UserSql userSql;
-
-            return new SimpleAuthenticationInfo(staffCode, staffPwd, getName());
+            String username = token.getUsername();
+            String password = String.valueOf(token.getPassword());
+            System.out.println("获取认证信息中:" + username);
+            // 用户登录校验
+            Boolean loginCheck = userSql.loginCheck(username, password);
+            if (loginCheck) {
+                User userInfo = userSql.selectByPrimaryUsername(username);
+                setSession("userRole",userInfo.getUsertype());
+                setSession("userName", username);
+                setSession("userID", userInfo.getUserid());
+                return new SimpleAuthenticationInfo(username, password, getName());
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

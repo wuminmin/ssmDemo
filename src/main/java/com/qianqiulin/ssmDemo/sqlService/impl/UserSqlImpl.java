@@ -17,4 +17,14 @@ public class UserSqlImpl implements UserSql {
         User user = userMapper.selectByPrimaryUsername(username);
         return user;
     }
+
+    @Override
+    public Boolean loginCheck(String username, String password) {
+        User user = userMapper.selectByPrimaryUsername(username);
+        if(password.equals(user.getUsername())){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

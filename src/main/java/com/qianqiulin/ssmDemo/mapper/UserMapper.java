@@ -16,4 +16,6 @@ public interface UserMapper {
     int updateByPrimaryKey(User record);
 
     User selectByPrimaryUsername(String username);
+
+    Boolean loginCheck(String staffCode,String staffPwd);
 }
