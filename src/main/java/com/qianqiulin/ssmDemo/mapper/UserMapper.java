@@ -2,6 +2,8 @@ package com.qianqiulin.ssmDemo.mapper;
 
 import com.qianqiulin.ssmDemo.pojo.User;
 
+import java.util.List;
+
 public interface UserMapper {
     int deleteByPrimaryKey(Integer userid);
 
@@ -17,5 +19,6 @@ public interface UserMapper {
 
     User selectByPrimaryUsername(String username);
 
-    Boolean loginCheck(String staffCode,String staffPwd);
+    List<User> selectAllUserList();
+
 }

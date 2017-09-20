@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>池州电信移动用户投诉管理系统</title>
+    <title>管理员账户</title>
     <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
     <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
 
@@ -26,13 +26,9 @@
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>移动用户投诉处理情况</h5>
-
+                    <h5>管理系统账户</h5>
                     <div class="ibox-tools alert">
-                        <a class="btn btn-warning btn-xs" type="button" href="${pageContext.request.contextPath}/user/table">管理系统账号</a>
-                        <a class="btn btn-primary btn-xs" type="button" href="${pageContext.request.contextPath}/table/record">增加记录</a>
-                        <a class="btn btn-primary btn-xs" type="button" href="${pageContext.request.contextPath}/table/excel">导出记录</a>
-                        <a class="btn btn-danger btn-xs" type="button" href="${pageContext.request.contextPath}/loginOut">退出登录</a>
+                        <a class="btn btn-primary btn-xs" type="button" href="${pageContext.request.contextPath}/table/table">返回主页面</a>
                     </div>
                 </div>
                 <div class="ibox-content">
@@ -41,34 +37,26 @@
                         <thead>
                         <tr>
                             <th data-field="id">序号</th>
-                            <th data-field="name">营业部</th>
-                            <th data-field="star">地名点</th>
-                            <th data-field="license">经度</th>
-                            <th data-field="description">纬度</th>
-                            <th data-field="url">覆盖用户数</th>
-                            <th data-field="url">目前固话数</th>
-                            <th data-field="url">附近铁塔情况</th>
-                            <th data-field="url">拟定解决方案</th>
-                            <th data-field="url">日期</th>
-                            <th data-field="url">处理最终结果</th>
+                            <th data-field="name">用户名</th>
+                            <th data-field="star">用户密码</th>
+                            <th data-field="license">邮箱</th>
+                            <th data-field="description">用户类型</th>
+                            <th data-field="url">手机号</th>
+
                         </tr>
                         </thead>
                         <tbody>
 
-                        <c:if test="${!empty complaints}">
-                            <c:forEach items="${complaints}" var="complaints">
+                        <c:if test="${!empty users}">
+                            <c:forEach items="${users}" var="users">
                                 <tr>
-                                    <td>${complaints.id}</td>
-                                    <td>${complaints.yingyebu}</td>
-                                    <td>${complaints.didian}</td>
-                                    <td>${complaints.jingdu}</td>
-                                    <td>${complaints.weidu}</td>
-                                    <td>${complaints.fugaiyonghushu}</td>
-                                    <td>${complaints.gudingdianhuashu}</td>
-                                    <td>${complaints.tietaqingkuang}</td>
-                                    <td>${complaints.jiejuefangan}</td>
-                                    <td>${complaints.date}</td>
-                                    <td>${complaints.chulijieguo}</td>
+                                    <td>${users.userid}</td>
+                                    <td>${users.username}</td>
+                                    <td>${users.userpassword}</td>
+                                    <td>${users.useremail}</td>
+                                    <td>${users.usertype}</td>
+                                    <td>${users.userphone}</td>
+
                                 </tr>
                             </c:forEach>
                         </c:if>
@@ -77,13 +65,35 @@
                     </table>
                     <tfoot>
 
-                    <form role="form" class="form-inline" action="${pageContext.request.contextPath}/table/delete">
+
+
+                    <form role="form" class="form-inline" action="${pageContext.request.contextPath}/user/add">
+                        <div class="form-group btn-xs">
+                            <input class=" btn-xs" type="txt" placeholder="请输入要增加的用户名" id="username" name="username" class="form-control">
+                        </div>
+                        <div class="form-group btn-xs">
+                            <input class=" btn-xs" type="txt" placeholder="请输入要增加的密码" id="userpassword" name="userpassword" class="form-control">
+                        </div>
+                        <div class="form-group btn-xs">
+                            <input class=" btn-xs" type="email" placeholder="请输入要增加的邮箱" id="useremail" name="useremail" class="form-control">
+                        </div>
+                        <%--<div class="form-group btn-xs">--%>
+                            <%--<input class=" btn-xs" type="number" placeholder="请输入要增加的类型，默认1" id="usertype" name="usertype" class="form-control">--%>
+                        <%--</div>--%>
+                        <div class="form-group btn-xs">
+                            <input class=" btn-xs" type="number" placeholder="请输入要增加的手机号" id="userphone" name="userphone" class="form-control">
+                        </div>
+                        <button class="btn btn-primary btn-xs" type="submit">增加记录</button>
+                    </form>
+
+                    <br>
+
+                    <form role="form" class="form-inline" action="${pageContext.request.contextPath}/user/delete">
                         <div class="form-group btn-xs">
                             <input class=" btn-xs" type="number" placeholder="请输入要删除的序号" id="deleteId" name="deleteId" class="form-control">
                         </div>
                         <button class="btn btn-danger btn-xs" type="submit">删除记录</button>
                     </form>
-
                     </tfoot>
                 </div>
             </div>
