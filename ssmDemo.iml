@@ -28,6 +28,7 @@
     <orderEntry type="library" name="Maven: org.glassfish.ha:ha-api:3.1.9" level="project" />
     <orderEntry type="library" name="Maven: org.apache.poi:poi:3.16" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-collections4:4.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.poi:poi-ooxml:3.16" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.gmbal:gmbal-api-only:3.0.0-b023" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.external:management-api:3.0.0-b012" level="project" />
     <orderEntry type="library" name="Maven: com.sun.xml.ws:policy:2.3.1" level="project" />
