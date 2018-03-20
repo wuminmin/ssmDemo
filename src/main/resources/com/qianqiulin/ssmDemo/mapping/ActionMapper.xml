@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qianqiulin.ssmDemo.mapper.ActionMapper" >
+  <resultMap id="BaseResultMap" type="com.qianqiulin.ssmDemo.pojo.Action" >
+    <id column="actionid" property="actionid" jdbcType="INTEGER" />
+    <result column="staffid" property="staffid" jdbcType="INTEGER" />
+    <result column="fatie" property="fatie" jdbcType="INTEGER" />
+    <result column="huitie" property="huitie" jdbcType="INTEGER" />
+    <result column="liulan" property="liulan" jdbcType="INTEGER" />
+    <result column="dianzan" property="dianzan" jdbcType="INTEGER" />
+    <result column="tucao" property="tucao" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    actionid, staffid, fatie, huitie, liulan, dianzan, tucao
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from action
+    where actionid = #{actionid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from action
+    where actionid = #{actionid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qianqiulin.ssmDemo.pojo.Action" >
+    insert into action (actionid, staffid, fatie, 
+      huitie, liulan, dianzan, 
+      tucao)
+    values (#{actionid,jdbcType=INTEGER}, #{staffid,jdbcType=INTEGER}, #{fatie,jdbcType=INTEGER}, 
+      #{huitie,jdbcType=INTEGER}, #{liulan,jdbcType=INTEGER}, #{dianzan,jdbcType=INTEGER}, 
+      #{tucao,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qianqiulin.ssmDemo.pojo.Action" >
+    insert into action
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="actionid != null" >
+        actionid,
+      </if>
+      <if test="staffid != null" >
+        staffid,
+      </if>
+      <if test="fatie != null" >
+        fatie,
+      </if>
+      <if test="huitie != null" >
+        huitie,
+      </if>
+      <if test="liulan != null" >
+        liulan,
+      </if>
+      <if test="dianzan != null" >
+        dianzan,
+      </if>
+      <if test="tucao != null" >
+        tucao,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="actionid != null" >
+        #{actionid,jdbcType=INTEGER},
+      </if>
+      <if test="staffid != null" >
+        #{staffid,jdbcType=INTEGER},
+      </if>
+      <if test="fatie != null" >
+        #{fatie,jdbcType=INTEGER},
+      </if>
+      <if test="huitie != null" >
+        #{huitie,jdbcType=INTEGER},
+      </if>
+      <if test="liulan != null" >
+        #{liulan,jdbcType=INTEGER},
+      </if>
+      <if test="dianzan != null" >
+        #{dianzan,jdbcType=INTEGER},
+      </if>
+      <if test="tucao != null" >
+        #{tucao,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qianqiulin.ssmDemo.pojo.Action" >
+    update action
+    <set >
+      <if test="staffid != null" >
+        staffid = #{staffid,jdbcType=INTEGER},
+      </if>
+      <if test="fatie != null" >
+        fatie = #{fatie,jdbcType=INTEGER},
+      </if>
+      <if test="huitie != null" >
+        huitie = #{huitie,jdbcType=INTEGER},
+      </if>
+      <if test="liulan != null" >
+        liulan = #{liulan,jdbcType=INTEGER},
+      </if>
+      <if test="dianzan != null" >
+        dianzan = #{dianzan,jdbcType=INTEGER},
+      </if>
+      <if test="tucao != null" >
+        tucao = #{tucao,jdbcType=INTEGER},
+      </if>
+    </set>
+    where actionid = #{actionid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qianqiulin.ssmDemo.pojo.Action" >
+    update action
+    set staffid = #{staffid,jdbcType=INTEGER},
+      fatie = #{fatie,jdbcType=INTEGER},
+      huitie = #{huitie,jdbcType=INTEGER},
+      liulan = #{liulan,jdbcType=INTEGER},
+      dianzan = #{dianzan,jdbcType=INTEGER},
+      tucao = #{tucao,jdbcType=INTEGER}
+    where actionid = #{actionid,jdbcType=INTEGER}
+  </update>
+</mapper>

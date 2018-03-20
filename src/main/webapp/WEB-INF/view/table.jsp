@@ -37,6 +37,8 @@
                            href="${pageContext.request.contextPath}/table/record">增加记录</a>
                         <a class="btn btn-primary btn-xs" type="button"
                            href="${pageContext.request.contextPath}/table/excel">导出记录</a>
+                        <a class="btn btn-primary btn-xs" type="button"
+                           href="${pageContext.request.contextPath}/table/map">地图展示</a>
                         <a class="btn btn-danger btn-xs" type="button"
                            href="${pageContext.request.contextPath}/loginOut">退出登录</a>
                     </div>
@@ -62,19 +64,19 @@
                         <tbody>
 
                         <c:if test="${!empty complaints}">
-                            <c:forEach items="${complaints}" var="complaints">
+                            <c:forEach items="${complaints}" var="complaint">
                                 <tr>
-                                    <td>${complaints.id}</td>
-                                    <td>${complaints.yingyebu}</td>
-                                    <td>${complaints.didian}</td>
-                                    <td>${complaints.jingdu}</td>
-                                    <td>${complaints.weidu}</td>
-                                    <td>${complaints.fugaiyonghushu}</td>
-                                    <td>${complaints.gudingdianhuashu}</td>
-                                    <td>${complaints.tietaqingkuang}</td>
-                                    <td>${complaints.jiejuefangan}</td>
-                                    <td>${complaints.date}</td>
-                                    <td>${complaints.chulijieguo}</td>
+                                    <td>${complaint.id}</td>
+                                    <td>${complaint.yingyebu}</td>
+                                    <td>${complaint.didian}</td>
+                                    <td>${complaint.jingdu}</td>
+                                    <td>${complaint.weidu}</td>
+                                    <td>${complaint.fugaiyonghushu}</td>
+                                    <td>${complaint.gudingdianhuashu}</td>
+                                    <td>${complaint.tietaqingkuang}</td>
+                                    <td>${complaint.jiejuefangan}</td>
+                                    <td>${complaint.date}</td>
+                                    <td>${complaint.chulijieguo}</td>
                                 </tr>
                             </c:forEach>
                         </c:if>
@@ -108,10 +110,10 @@
                     </tfoot>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
-
 <!-- 全局js -->
 <script src="${pageContext.request.contextPath}/static/js/jquery.min.js?v=2.1.4"></script>
 <script src="${pageContext.request.contextPath}/static/js/bootstrap.min.js?v=3.3.6"></script>
@@ -182,4 +184,5 @@
 <!--统计代码，可删除-->
 
 </body>
+
 </html>

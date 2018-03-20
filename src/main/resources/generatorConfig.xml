@@ -51,8 +51,8 @@
         <!--<columnOverride column="DeviceType" javaType="java.lang.String" jdbcType="VARCHAR" />-->
         <!--</table>-->
 
-        <table tableName="user"
-               domainObjectName="User"
+        <table tableName="action"
+               domainObjectName="Action"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"

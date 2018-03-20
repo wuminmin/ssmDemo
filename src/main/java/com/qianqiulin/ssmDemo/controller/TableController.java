@@ -1,5 +1,6 @@
 package com.qianqiulin.ssmDemo.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.qianqiulin.ssmDemo.pojo.Complaint;
 import com.qianqiulin.ssmDemo.sqlService.ComplaintSql;
 import com.qianqiulin.ssmDemo.view.ExcelView;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -106,6 +108,26 @@ public class TableController {
             request.getSession().setAttribute("msg",Msg);
         }
         mav.setViewName("redirect:/table/table");
+        return mav;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/mapjson")
+    public String mapjson( ){
+
+        List<Complaint> complaints = complaintSql.selectAllComplaintList();
+
+        String mapjson = JSON.toJSONString(complaints);
+
+        System.out.println(mapjson);
+        return mapjson;
+    }
+
+    @RequestMapping(value = "/map")
+    public ModelAndView map(ModelAndView mav){
+        List<Complaint> complaints = complaintSql.selectAllComplaintList();
+        mav.addObject("complaints", complaints);
+        mav.setViewName("map");
         return mav;
     }
 }

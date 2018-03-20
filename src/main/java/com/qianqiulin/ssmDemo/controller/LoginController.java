@@ -92,6 +92,12 @@ public class LoginController {
         return mav;
     }
 
+    @RequestMapping(value = "/wyj")
+    public ModelAndView wyj(ModelAndView mav){
+        mav.setViewName("wyj/wyj");
+        return mav;
+    }
+
     @RequestMapping(value = "/add")
     public ModelAndView add(ModelAndView mav, Complaint request){
         Complaint record = request;
@@ -105,4 +111,5 @@ public class LoginController {
         mav.setViewName("record");
         return mav;
     }
+
 }
