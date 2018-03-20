@@ -112,7 +112,7 @@ public class TableController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/mapjson")
+    @RequestMapping(value = "/mapjson", method = {RequestMethod.GET}, produces = "text/plain;charset=UTF-8")
     public String mapjson( ){
 
         List<Complaint> complaints = complaintSql.selectAllComplaintList();

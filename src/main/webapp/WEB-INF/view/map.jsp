@@ -43,25 +43,28 @@
     map.enableScrollWheelZoom(true); //启用滚轮放大缩小
     map.setMapType(BMAP_HYBRID_MAP);
 
+    function addInfo(txt,marker){
+        var infoWindow = new BMap.InfoWindow(txt);
+        marker.addEventListener("click", function(){this.openInfoWindow(infoWindow);});
+    }
+
     function getJson() {
         $.ajax({
                 cache: false,
                 type: "get",
                 url: "${pageContext.request.contextPath}/table/mapjson",
-                scriptCharset: "utf-8",
+//                scriptCharset: "utf-8",
                 async: true,
                 success: function (result) {
-//                    resjson = JSON.parse(result)
                     console.log(result)
                     resjson = JSON.parse(result);
                     for (var i = 0, l = resjson.length; i < l; i++) {
 
                         //设置标注的经纬度
-                        var marker = new BMap.Marker(new BMap.Point(resjson[i]['jingdu'],resjson[i]['weidu']));
+                        var marker = new BMap.Marker(new BMap.Point(resjson[i]['jingdu'], resjson[i]['weidu']));
 
-                        //把标注添加到地图上
-                        map.addOverlay(marker);
-                        var label = new BMap.Label(resjson[i]['didian'],{offset:new BMap.Size(20,-10)});
+
+                        var label = new BMap.Label(resjson[i]['didian'], {offset: new BMap.Size(20, -10)});
                         label.setStyle({
                             width: "120px",
                             color: '#fff',
@@ -73,35 +76,19 @@
                             lineHeight: "26px"
                         });
                         marker.setLabel(label);
-
-
                         var content = "<table>";
-                        content = content + "<tr><td>"+resjson[i]['didian']+"</td></tr>";
-                        content = content + "<tr><td> "+resjson[i]['jiejuefangan']+"</td></tr>";
-                        content = content + "<tr><td> "+resjson[i]['chulijieguo']+"</td></tr>";
+                        content = content + "<tr><td>" + resjson[i]['didian'] + "</td></tr>";
+                        content = content + "<tr><td> " + resjson[i]['jiejuefangan'] + "</td></tr>";
+                        content = content + "<tr><td> " + resjson[i]['chulijieguo'] + "</td></tr>";
                         content += "</table>";
-                        var infowindow = new BMap.InfoWindow(content);
-                        marker.addEventListener("click",function(){
-                            this.openInfoWindow(infowindow);
-                        });
+                        addInfo(content,marker)
+//                        var infowindow = new BMap.InfoWindow(content);
+//                        marker.addEventListener("click", function () {
+//                            this.openInfoWindow(infowindow);
+//                        });
 
-
-//                    console.log(key+':'+resjson[i][key]);
-//                        var pointRes = new BMap.Point(resjson[i]['jingdu'], resjson[i]['weidu']);
-//                        var markeRres = new BMap.Marker(pointRes);  // 创建标注
-//                        var optsRes = {
-//                            width: 200,     // 信息窗口宽度
-//                            height: 100,     // 信息窗口高度
-//                            title: resjson[i]['didian'],
-//                            enableMessage: true,//设置允许信息窗发送短息
-//                            message: resjson[i]['jiejuefangan']
-//                        };
-//                        markeRres.setTitle(resjson[i]['didian'])
-//                        map.addOverlay(markeRres);
-////                        var infoWindow = new BMap.InfoWindow(resjson[i]['jiejuefangan'], optsRes);  // 创建信息窗口对象
-////                        markeRres.addEventListener("click", function () {
-////                            map.openInfoWindow(infoWindow, pointRes); //开启信息窗口
-////                        });
+                        //把标注添加到地图上
+                        map.addOverlay(marker);
                     }
                 },
                 error: function () {
@@ -110,8 +97,5 @@
             }
         );
     }
-
     getJson();
-    //    resjson = getJson();
-
 </script>
