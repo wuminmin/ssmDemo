@@ -77,9 +77,9 @@
                         });
                         marker.setLabel(label);
                         var content = "<table>";
-                        content = content + "<tr><td>" + resjson[i]['didian'] + "</td></tr>";
-                        content = content + "<tr><td> " + resjson[i]['jiejuefangan'] + "</td></tr>";
-                        content = content + "<tr><td> " + resjson[i]['chulijieguo'] + "</td></tr>";
+                        content = content + "<tr><td>营业部：</td><td>" + resjson[i]['yingyebu'] + "</td></tr>";
+                        content = content + "<tr><td>解决方案：</td><td> " + resjson[i]['jiejuefangan'] + "</td></tr>";
+                        content = content + "<tr><td>处理结果：</td><td> " + resjson[i]['chulijieguo'] + "</td></tr>";
                         content += "</table>";
                         addInfo(content,marker)
 //                        var infowindow = new BMap.InfoWindow(content);
