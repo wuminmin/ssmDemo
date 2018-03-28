@@ -30,8 +30,10 @@ public class LoginController {
         ModelAndView mav = new ModelAndView();
         String userTel = request.getParameter("userTel");
         String userPwd = request.getParameter("userPwd");
-        String verifyCode = request.getParameter("VerifyCode").toLowerCase();
-        String verCode = (String) httpSession.getAttribute("verCode");
+//        String verifyCode = request.getParameter("VerifyCode").toLowerCase();
+//        String verCode = (String) httpSession.getAttribute("verCode");
+        String verifyCode = "0000";
+        String verCode = "0000";
         System.out.println(verCode);
         logger.info("loginInfo:\nuserTel=" + userTel);
         //shiro登录授权
@@ -39,7 +41,7 @@ public class LoginController {
 //        shirotoken.setRememberMe(true);
 
         //取消验证码
-        verCode = verifyCode;
+//        verCode = verifyCode;
         if (verCode.equals(verifyCode)) {
             Subject subject = SecurityUtils.getSubject();
             try {

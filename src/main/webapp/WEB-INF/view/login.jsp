@@ -46,15 +46,15 @@
                     <input type="password" name="userPwd" class="form-control" placeholder="密码" required="">
                 </div>
 
-                <div class="form-group">
-                    <div class="col-sm-8 form-group" style="padding-left: 0px;padding-right: 0px;">
-                        <input name="VerifyCode" type="text" class="form-control"
-                               placeholder="验证码" required="">
-                    </div>
-                    <a class="col-sm-4 form-group" href='#' onclick="javascript:changeImg()">
-                        <img id="imageCode" src="${pageContext.request.contextPath}/verCode/getImage">
-                    </a>
-                </div>
+                <%--<div class="form-group">--%>
+                    <%--<div class="col-sm-8 form-group" style="padding-left: 0px;padding-right: 0px;">--%>
+                        <%--<input name="VerifyCode" type="text" class="form-control"--%>
+                               <%--placeholder="验证码" required="">--%>
+                    <%--</div>--%>
+                    <%--<a class="col-sm-4 form-group" href='#' onclick="javascript:changeImg()">--%>
+                        <%--<img id="imageCode" src="${pageContext.request.contextPath}/verCode/getImage">--%>
+                    <%--</a>--%>
+                <%--</div>--%>
 
                 <button type="submit" class="btn btn-primary block full-width m-b">登 录</button>
                 <br>
