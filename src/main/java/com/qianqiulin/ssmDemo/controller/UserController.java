@@ -63,7 +63,7 @@ public class UserController {
     @RequestMapping(value = "/add")
     public ModelAndView add(ModelAndView mav, User request){
         User record = request;
-//        record.setUsertype("1");
+        record.setUsertype("1");
 //        SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日");
 //        Date date = new Date(System.currentTimeMillis());
 //        String time = format.format(date);
