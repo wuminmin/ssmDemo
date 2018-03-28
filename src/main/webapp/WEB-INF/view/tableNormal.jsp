@@ -85,27 +85,27 @@
                     </table>
                     <tfoot>
 
-                    <form role="form" class="form-inline" action="${pageContext.request.contextPath}/table/delete">
-                        <div class="form-group btn-xs">
-                            <input class=" btn-xs" type="number" placeholder="请输入要删除的序号" id="deleteId" name="deleteId"
-                                   class="form-control">
-                        </div>
-                        <button class="btn btn-danger btn-xs" type="submit">删除记录</button>
-                    </form>
+                    <%--<form role="form" class="form-inline" action="${pageContext.request.contextPath}/table/delete">--%>
+                        <%--<div class="form-group btn-xs">--%>
+                            <%--<input class=" btn-xs" type="number" placeholder="请输入要删除的序号" id="deleteId" name="deleteId"--%>
+                                   <%--class="form-control">--%>
+                        <%--</div>--%>
+                        <%--<button class="btn btn-danger btn-xs" type="submit">删除记录</button>--%>
+                    <%--</form>--%>
 
-                    <br>
+                    <%--<br>--%>
 
-                    <form role="form" class="form-inline" action="${pageContext.request.contextPath}/table/batchimport" method="post" enctype="multipart/form-data"
-                          onsubmit="return check();">
-                        <div class="form-group btn-xs">
+                    <%--<form role="form" class="form-inline" action="${pageContext.request.contextPath}/table/batchimport" method="post" enctype="multipart/form-data"--%>
+                          <%--onsubmit="return check();">--%>
+                        <%--<div class="form-group btn-xs">--%>
 
-                            <input class=" btn-xs"  id="excel_file" type="file" name="filename" accept="xlsx"/>
+                            <%--<input class=" btn-xs"  id="excel_file" type="file" name="filename" accept="xlsx"/>--%>
 
-                        </div>
-                        <input class="btn btn-primary btn-xs"  id="excel_button" type="submit" value="导入Excel"/>
-                        <%--<font id="importMsg" color="red"><%=importMsg%>--%>
-                        <%--</font>--%>
-                    </form>
+                        <%--</div>--%>
+                        <%--<input class="btn btn-primary btn-xs"  id="excel_button" type="submit" value="导入Excel"/>--%>
+                        <%--&lt;%&ndash;<font id="importMsg" color="red"><%=importMsg%>&ndash;%&gt;--%>
+                        <%--&lt;%&ndash;</font>&ndash;%&gt;--%>
+                    <%--</form>--%>
 
                     </tfoot>
                 </div>

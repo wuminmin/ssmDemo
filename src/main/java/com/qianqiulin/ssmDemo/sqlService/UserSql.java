@@ -10,4 +10,5 @@ public interface UserSql {
     List<User> selectAllUserList();
     void delete(int id);
     void insert(User record);
+    void update(User record);
 }

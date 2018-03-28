@@ -47,19 +47,19 @@
                         </thead>
                         <tbody>
 
-                        <c:if test="${!empty users}">
-                            <c:forEach items="${users}" var="users">
+                        <%--<c:if test="${!empty users}">--%>
+                            <%--<c:forEach items="${users}" var="users">--%>
                                 <tr>
-                                    <td>${users.userid}</td>
-                                    <td>${users.username}</td>
-                                    <td>${users.userpassword}</td>
-                                    <td>${users.useremail}</td>
-                                    <td>${users.usertype}</td>
-                                    <td>${users.userphone}</td>
+                                    <td>${user.userid}</td>
+                                    <td>${user.username}</td>
+                                    <td>${user.userpassword}</td>
+                                    <td>${user.useremail}</td>
+                                    <td>${user.usertype}</td>
+                                    <td>${user.userphone}</td>
 
                                 </tr>
-                            </c:forEach>
-                        </c:if>
+                            <%--</c:forEach>--%>
+                        <%--</c:if>--%>
                         </tbody>
 
                     </table>
@@ -67,33 +67,39 @@
 
 
 
-                    <form role="form" class="form-inline" action="${pageContext.request.contextPath}/user/add">
+                    <form role="form" class="form-inline" action="${pageContext.request.contextPath}/user/update">
+                        <%--<div class="form-group btn-xs">--%>
+                        <%--<input class=" btn-xs" type="txt" value="${user.userid}" id="userid" name="username" class="form-control">--%>
+                    <%--</div>--%>
+                        <%--<div class="form-group btn-xs">--%>
+                            <%--<input class=" btn-xs" type="txt" value="${user.username}"  id="username" name="username" class="form-control">--%>
+                        <%--</div>--%>
                         <div class="form-group btn-xs">
-                            <input class=" btn-xs" type="txt" placeholder="请输入要增加的用户名" id="username" name="username" class="form-control">
+                            <label>新密码</label>
+                            <input class=" btn-xs" type="txt" value="${user.userpassword}"  id="userpassword" name="userpassword" class="form-control">
                         </div>
                         <div class="form-group btn-xs">
-                            <input class=" btn-xs" type="txt" placeholder="请输入要增加的密码" id="userpassword" name="userpassword" class="form-control">
+                            <label>新邮箱</label>
+                            <input class=" btn-xs" type="email" value="${user.useremail}"  id="useremail" name="useremail" class="form-control">
                         </div>
+                        <%--<div class="form-group btn-xs">--%>
+                        <%--<input class=" btn-xs" type="txt" value="${user.usertype}"   id="usertype" name="usertype" class="form-control">--%>
+                        <%--</div>--%>
                         <div class="form-group btn-xs">
-                            <input class=" btn-xs" type="email" placeholder="请输入要增加的邮箱" id="useremail" name="useremail" class="form-control">
+                            <label>新手机</label>
+                            <input class=" btn-xs" type="txt" value="${user.userphone}"  id="userphone" name="userphone" class="form-control">
                         </div>
-                        <div class="form-group btn-xs">
-                        <input class=" btn-xs" type="number" placeholder="请输入要增加的类型，普通用户1，管理员用户2" id="usertype" name="usertype" class="form-control">
-                        </div>
-                        <div class="form-group btn-xs">
-                            <input class=" btn-xs" type="number" placeholder="请输入要增加的手机号" id="userphone" name="userphone" class="form-control">
-                        </div>
-                        <button class="btn btn-primary btn-xs" type="submit">增加记录</button>
+                        <button class="btn btn-primary btn-xs" type="submit">修改记录</button>
                     </form>
 
                     <br>
 
-                    <form role="form" class="form-inline" action="${pageContext.request.contextPath}/user/delete">
-                        <div class="form-group btn-xs">
-                            <input class=" btn-xs" type="number" placeholder="请输入要删除的序号" id="deleteId" name="deleteId" class="form-control">
-                        </div>
-                        <button class="btn btn-danger btn-xs" type="submit">删除记录</button>
-                    </form>
+                    <%--<form role="form" class="form-inline" action="${pageContext.request.contextPath}/user/delete">--%>
+                        <%--<div class="form-group btn-xs">--%>
+                            <%--<input class=" btn-xs" type="number" placeholder="请输入要删除的序号" id="deleteId" name="deleteId" class="form-control">--%>
+                        <%--</div>--%>
+                        <%--<button class="btn btn-danger btn-xs" type="submit">删除记录</button>--%>
+                    <%--</form>--%>
                     </tfoot>
                 </div>
             </div>

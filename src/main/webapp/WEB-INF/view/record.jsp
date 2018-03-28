@@ -39,7 +39,7 @@
             <%--<h1 class="logo-name">H+</h1>--%>
 
         <%--</div>--%>
-        <h3>登记移动用户投诉处理情况</h3>
+        <h3>登记移动网络盲点情况</h3>
 
         <form class="m-t" role="form" action="${pageContext.request.contextPath}/add">
             <div class="form-group">

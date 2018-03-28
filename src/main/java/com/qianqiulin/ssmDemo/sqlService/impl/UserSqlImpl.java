@@ -45,4 +45,9 @@ public class UserSqlImpl implements UserSql {
     public void insert(User record) {
         userMapper.insert(record);
     }
+
+    @Override
+    public void update(User record) {
+        userMapper.updateByPrimaryKey(record);
+    }
 }

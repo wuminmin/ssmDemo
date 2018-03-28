@@ -47,7 +47,7 @@ public class LoginController {
                 logger.info("loginSuccess!!!");
                 //登录成功后跳转
                 String userRole = (String) httpSession.getAttribute("userRole");
-                if (userRole.equals("1")) {
+                if (userRole.equals("1") || userRole.equals("2")) {
 
                     mav.setViewName("redirect:/table/table");
                 } else if (userRole.equals("0")) {

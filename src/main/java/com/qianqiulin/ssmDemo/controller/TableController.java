@@ -2,6 +2,7 @@ package com.qianqiulin.ssmDemo.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.qianqiulin.ssmDemo.pojo.Complaint;
+import com.qianqiulin.ssmDemo.pojo.User;
 import com.qianqiulin.ssmDemo.sqlService.ComplaintSql;
 import com.qianqiulin.ssmDemo.view.ExcelView;
 import org.apache.shiro.authz.annotation.RequiresRoles;
@@ -17,12 +18,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static java.lang.System.out;
 
@@ -36,11 +35,39 @@ public class TableController {
     private ComplaintSql complaintSql;
 
     @RequestMapping(value = "/table")
-    public ModelAndView table(ModelAndView mav){
-        List<Complaint> complaints = complaintSql.selectAllComplaintList();
-        mav.addObject("complaints", complaints);
-        mav.setViewName("table");
-        return mav;
+    public ModelAndView table(ModelAndView mav, HttpSession httpSession){
+        String userName = (String) httpSession.getAttribute("userName");
+        Integer userID = Integer.parseInt(String.valueOf(httpSession.getAttribute("userID")  != null ? httpSession.getAttribute("userID") : "0").trim());
+        String userRole = (String) httpSession.getAttribute("userRole");
+        if (userRole.equals("2")) {
+//            mav.addObject("users", users);
+//            mav.setViewName("user");
+//            return mav;
+
+            List<Complaint> complaints = complaintSql.selectAllComplaintList();
+            mav.addObject("complaints", complaints);
+            mav.setViewName("table");
+            return mav;
+
+        }else if(userRole.equals("1")){
+//            List<User> newusers = new ArrayList<User>();
+//            User newUser = userSql.selectByPrimaryUsername(userName);
+//            newusers.add(newUser);
+//            mav.addObject("user", newUser);
+//            mav.setViewName("userNormal");
+//            return mav;
+
+
+            List<Complaint> complaints = complaintSql.selectAllComplaintList();
+            mav.addObject("complaints", complaints);
+            mav.setViewName("tableNormal");
+            return mav;
+
+        }else{
+            mav.setViewName("redirect:/table/tableNormal");
+            return mav;
+        }
+
     }
 
     @RequestMapping(value = "/excel",method = RequestMethod.GET)

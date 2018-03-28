@@ -41,7 +41,7 @@
     //    map.addOverlay(marker);              // 将标注添加到地图中
     map.centerAndZoom(point, 15);
     map.enableScrollWheelZoom(true); //启用滚轮放大缩小
-    map.setMapType(BMAP_HYBRID_MAP);
+    map.setMapType(BMAP_NORMAL_MAP);
 
     function addInfo(txt,marker){
         var infoWindow = new BMap.InfoWindow(txt);
@@ -77,7 +77,7 @@
                         });
                         marker.setLabel(label);
                         var content = "<table>";
-                        content = content + "<tr><td>营业部：</td><td>" + resjson[i]['yingyebu'] + "</td></tr>";
+                        content = content + "<tr><td>日期：</td><td>" + resjson[i]['date'] + "</td></tr>";
                         content = content + "<tr><td>解决方案：</td><td> " + resjson[i]['jiejuefangan'] + "</td></tr>";
                         content = content + "<tr><td>处理结果：</td><td> " + resjson[i]['chulijieguo'] + "</td></tr>";
                         content += "</table>";
